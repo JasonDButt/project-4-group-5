@@ -1,6 +1,6 @@
 
 from flask import Flask, request, render_template
-from read_puzzle import *
+# from read_puzzle import *
 
 app = Flask(__name__)
 

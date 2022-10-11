@@ -103,9 +103,6 @@ def export_result(img_path):
                 pred = model.predict(roi).argmax(axis=1)[0]
                 board[i,j] = pred
             cell_locs.append([topleftx,toplefty,rightendx,rightendy])
-    return (board)
+    print (board)
 
-
-
-img_path = "http://abcnews.go.com/images/US/ht_level_11_sudoku_jef_120629_wblog.jpg"
-export_result(img_path)
+export_result("test_image.png")
