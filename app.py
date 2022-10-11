@@ -1,8 +1,11 @@
 
+import os
 from flask import Flask, request, render_template
-# from read_puzzle import *
+from read_puzzle import export_result
+from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
+app.config['UPLOAD_PATH'] = 'uploads'
 
 @app.route("/")
 def index():
@@ -13,9 +16,12 @@ def index():
 @app.route("/read_puzzle", methods=["POST","GET"])
 def puzzle():
     if request.method == "POST":
-        input_path =request.form.get("url_path")
-        # data = export_result(input_path)
-    return render_template("modify.html", test=input_path)
+        enquired_file = request.files['file']
+        file_name = secure_filename(enquired_file.filename)
+        enquired_file.save(os.path.join(app.config['UPLOAD_PATH'], file_name))
+        file_path = app.config['UPLOAD_PATH'] + "/"+file_name
+        board = export_result(file_path)
+    return render_template("modify.html",data=board)
 
 # # ==============================================
 # # To read user's modification

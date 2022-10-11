@@ -27,8 +27,8 @@
         <!-- Second row with input form -->  
         <div class="row">
             <div class="col-md-12">
-                <form action="/read_puzzle" method = "POST">
-                    <input type="text" class="form-control" placeholder="Enter the file path" name="url_path">
+                <form action="/read_puzzle" method = "POST" enctype = "multipart/form-data">
+                    <input type="file" class="form-control" placeholder="Enter the file path" name="file" />
                     <button type = "submit" value = "submit" class="btn btn-primary btn-lg">Confirm Puzzles</button>
                 </form>
             </div>

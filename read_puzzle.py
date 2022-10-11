@@ -103,6 +103,5 @@ def export_result(img_path):
                 pred = model.predict(roi).argmax(axis=1)[0]
                 board[i,j] = pred
             cell_locs.append([topleftx,toplefty,rightendx,rightendy])
-    print (board)
+    return board
 
-export_result("test_image.png")

@@ -38,7 +38,13 @@
         <!-- Output Area-->
         <div class="row">
             <div class="col-md-12">
-                <h1>Output Area; for test purpose {{test}}</h1>>
+                <ul style="list-style: none;">
+
+                    {% for line in data %}
+                    <li>{{ line[0] }}</li>
+                    {% endfor %}
+                    
+                </ul> 
             </div>
         </div>
     </div>
