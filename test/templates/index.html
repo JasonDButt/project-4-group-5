@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sudoku Home Page</title>
+
+    <!-- Bring in bootstrap stylesheet -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <!-- Manual Style file -->
+    <style>
+        body {background-color:rgb(211, 188, 146); margin-top: 10%;}
+        h1 {padding: 5%; text-align: center;font-weight: bold; color:rgb(160, 95, 20);}
+        .btn {margin-top:2%; margin-left: 40%; background-color: rgb(172, 13, 13); border-color: aliceblue; border-width: 5px; font-weight: bolder;}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- First row with a header-->
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Stuck with Your Sudoku?</h1>
+            </div>
+        </div>
+        
+        <!-- Second row with input form -->  
+        <div class="row">
+            <div class="col-md-12">
+                <form action="/read_puzzle" method = "POST">
+                    <input type="text" class="form-control" placeholder="Enter the file path" name="url_path">
+                    <button type = "submit" value = "submit" class="btn btn-primary btn-lg">Confirm Puzzles</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
