@@ -23,15 +23,8 @@ def read():
         path = os.path.join(app.config['UPLOAD_PATH'], file_name)
         enquired_file.save(path)
         board = export_result(path)
-    
-    board_li = []
-    for i in range(9):
-        board_dic = {}
-        for j in range(9):
-            board_dic[f'col{j}']=str(board[i][j])
-        board_li.append(board_dic)
 
-    return render_template("solution.html", data=board_li, path=path)
+    return render_template("solution.html", data=board.tolist(), path=path)
 
 
 if __name__ == "__main__":
