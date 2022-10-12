@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Sudoku Home Page</title>
+    <title>Sudoku Solution Page</title>
 
     <!-- Bring in bootstrap stylesheet -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
@@ -12,41 +12,45 @@
         body {background-color:rgb(211, 188, 146); margin-top: 2%;}
         h1 {padding: 2%; text-align: center;font-weight: bold; color:rgb(160, 95, 20);}
         #modification-form {width: 50%; margin-left: 25%; margin-top: 2%;}
+        #img {width:60%;height:auto; margin-top: 2%;}
     </style>
 </head>
 
 <body>
     <div class="container">
-        <!-- First row with a header-->
+        <!-- First row: header-->
         <div class="row">
             <div class="col-md-12">
                 <h1>Confirm Your Puzzle & Get Solutions!</h1>
             </div>
         </div>
-        <!-- Second row with input form to correct it -->  
+
+        <!-- Second row:Input form to correct it -->  
         <div class="row">
             <div class="col-md-12">
                 <form  id="modification-form">
-                    <input class="form-control mr-sm-2" type="search" placeholder="row col value" aria-describedby="passwordHelpBlock">
+                    <input class="form-control mr-sm-2" type="search" placeholder="row col value; row col value" aria-describedby="passwordHelpBlock">
                     <div id="passwordHelpBlock" class="form-text">
-                    (Instructions for how to input the values.)
+                    (Place holder for instructions of how to input the values.)
                     </div>
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Submit</button>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Submit for Final Solutions</button>
                 </form>
             </div>
         </div>
+    </div>
         <!-- Output Area-->
+    <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <ul style="list-style: none;">
-
-                    {% for line in data %}
-                    <li>{{ line[0] }}</li>
-                    {% endfor %}
-                    
-                </ul> 
+            <!-- area for user's uploading image -->
+            <div class="col-md-6"><img src=# id="img"></div>
+            <div class="col-md-6">
+                <!-- area for D3 output code -->
             </div>
         </div>
     </div>
+
+
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script type="text/javascript" src="../static/js/app.js"></script>
 </body>
 </html>

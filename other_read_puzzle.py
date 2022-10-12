@@ -4,7 +4,6 @@ from imutils.perspective import four_point_transform
 from skimage.segmentation import clear_border
 from tensorflow.keras.models import load_model
 import numpy as np
-from Sudoku import solveSudoku
 from tensorflow.keras.preprocessing.image import img_to_array
 import matplotlib.pyplot as plt
 
