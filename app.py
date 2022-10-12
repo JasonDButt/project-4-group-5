@@ -1,6 +1,6 @@
 
 import os
-from flask import Flask, request, render_template, jsonify, redirect
+from flask import Flask, request, render_template, jsonify
 from other_read_puzzle import export_result
 from werkzeug.utils import secure_filename
 
@@ -10,10 +10,6 @@ app.config['UPLOAD_PATH'] = 'static/images'
 @app.route("/")
 def index():
     return render_template("index.html")
-
-@app.route("/solution")
-def solve():
-    return render_template("solution.html")
 
 # ==============================================
 # To read the initial puzzle from user & send it to js to visualise
@@ -26,10 +22,16 @@ def read():
         file_name = secure_filename(enquired_file.filename)
         path = os.path.join(app.config['UPLOAD_PATH'], file_name)
         enquired_file.save(path)
-        # read puzzles from function of read_puzzle python file as a list
         board = export_result(path)
+    
+    board_li = []
+    for i in range(9):
+        board_dic = {}
+        for j in range(9):
+            board_dic[f'col{j}']=str(board[i][j])
+        board_li.append(board_dic)
 
-    return jsonify(board.tolist())
+    return render_template("solution.html", data=board_li, path=path)
 
 
 if __name__ == "__main__":

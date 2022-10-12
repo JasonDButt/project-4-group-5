@@ -1,6 +1,6 @@
 
-const path = "/read_puzzle";
+// function myFunc(x) {
+//     return x
+// };
 
-d3.json(path).then((data)=>{
-    console.log(data);
-});
+console.log(initial);
