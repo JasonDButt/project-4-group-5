@@ -3,7 +3,7 @@
 //     return x
 // };
 
-console.log(initial);
+console.log(board_data);
 function gridData() {
 	var data = new Array();
 	var xpos = 1; //starting xpos and ypos at 1 so the stroke will show when we make the grid below
