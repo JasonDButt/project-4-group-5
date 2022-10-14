@@ -6,53 +6,60 @@
     <meta charset="UTF-8">
     <title>Sudoku Solution Page</title>
 
-    <!-- Bring in bootstrap stylesheet -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js" integrity="sha256-xkEoWEC2R3sOXaM8jnaKT43guoCyTbkiGAFratj9x1Q=" crossorigin="anonymous"></script>
+    <!-- Bring in library -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js" integrity="sha256-xkEoWEC2R3sOXaM8jnaKT43guoCyTbkiGAFratj9x1Q=" crossorigin="anonymous"></script> -->
     <!-- Manual Style file -->
     <style>
-        body {background-color:rgb(211, 188, 146); margin-top: 2%;}
-        h1 {padding: 2%; text-align: center;font-weight: bold; color:rgb(160, 95, 20);}
-        #modification-form {width: 50%; margin-left: 25%; margin-top: 2%;}
-        #img {width:60%;height:auto; margin-top: 2%;}
+        body {background-color:rgb(211, 188, 146); margin-top: 1%;}
+        h1 {padding: 2%; text-align: center;font-weight: bold; color:rgb(231, 61, 31);}
+        .container.custom-container {margin-top: 5%;}
     </style>
-
+   
+   <!-- Javascript to get board -->
     <script type="text/javascript">
-        var initial = {{ data|tojson}}
+        var board_data = {{ data|tojson }}
+        if (board_data[2] === false){alert("Invalid Puzzles:\n@Ensure check the puzzles based on instructions.")} ;
      </script>
 </head>
 
 <body>
+    <!-- First part: header-->
     <div class="container">
-        <!-- First row: header-->
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-12">
                 <h1>Confirm Your Puzzle & Get Solutions!</h1>
             </div>
         </div>
-
-        <!-- Second row:Input form to correct it -->  
+    </div>
+    
+    <!-- Second part:Input form to correct it -->  
+    <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <form  id="modification-form">
-                    <input class="form-control mr-sm-2" type="search" placeholder="row col value; row col value" aria-describedby="passwordHelpBlock">
-                    <div id="passwordHelpBlock" class="form-text">
-                    (Place holder for instructions of how to input the values.)
-                    </div>
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Submit for Final Solutions</button>
-                </form>
-            </div>
+            <form  action="/solve_puzzle" method="POST" class="mx-auto" style="width: 50%;">
+                <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Check puzzle based on below instructions" name="modification">
+                <button class="btn btn-outline-secondary" type="submit" id="button-addon2" value="submit">Submit</button>
+                </div>
+            </form>  
         </div>
     </div>
-        <!-- Output Area-->
+
+    <!-- Third part: Instruction of inputting -->
     <div class="container">
+        <div class="row">
+            <img src="../static/images/instruction/instruction.png" class="mx-auto" style="width: 60%;">
+        </div>
+    </div>
+
+    <!-- Fourth Part: Outout area -->  
+    <div class="custom-container container">
         <div class="row">
             <!-- area for user's uploading image -->
             <div class="col-md-6"><img src={{path}} id="img"></div>
             <div class="col-md-6">
                 <!-- area for D3 output code -->
-                <div id="myid"></div>
+                <div id="grid"></div>
                 <div class="center fixed-width">
                     <div class="inline">
                         <h1>Sudoku Solver</h1>
@@ -83,11 +90,26 @@
                         Auto Solve All
                     </div>
 
-
-<script type="text/javascript" src="{{ url_for('static', filename='js/sudoku.js') }}"></script>
+<script src="{{ url_for('static', filename='js/helper.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='js/sudoku_ui.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='js/sudoku.js') }}" type="text/javascript"></script>
+<!-- <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+                
+    ga('create', 'UA-72333354-1', 'auto');
+    ga('send', 'pageview');
+                
+</script> -->
             </div>
         </div>
     </div>
+        
+<!-- link to the test JS file -->
 <script type="text/javascript" src="{{ url_for('static', filename='js/app.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
 </body>
 </html>
