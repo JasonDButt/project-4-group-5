@@ -1,23 +1,17 @@
-
-// function myFunc(x) {
-//     return x
-// };
-
-console.log(board_data);
 function gridData() {
 	var data = new Array();
 	var xpos = 1; //starting xpos and ypos at 1 so the stroke will show when we make the grid below
 	var ypos = 1;
-	var width = 50;
-	var height = 50;
+	var width = 40;
+	var height = 40;
 	var click = 0;
 	
 	// iterate for rows	
-	for (var row = 0; row < 10; row++) {
+	for (var row = 0; row < 9; row++) {
 		data.push( new Array() );
 		
 		// iterate for cells/columns inside rows
-		for (var column = 0; column < 10; column++) {
+		for (var column = 0; column < 9; column++) {
 			data[row].push({
 				x: xpos,
 				y: ypos,
@@ -42,8 +36,8 @@ console.log(gridData);
 
 var grid = d3.select("#grid")
 	.append("svg")
-	.attr("width","510px")
-	.attr("height","510px");
+	.attr("width","410px")
+	.attr("height","410px");
 	
 var row = grid.selectAll(".row")
 	.data(gridData)
@@ -65,5 +59,4 @@ var column = row.selectAll(".square")
        if ((d.click)%4 == 0 ) { d3.select(this).style("fill","#fff"); }
 	   if ((d.click)%4 == 1 ) { d3.select(this).style("fill","#2C93E8"); }
 	   if ((d.click)%4 == 2 ) { d3.select(this).style("fill","#F56C4E"); }
-	   if ((d.click)%4 == 3 ) { d3.select(this).style("fill","#838690"); }
     });
