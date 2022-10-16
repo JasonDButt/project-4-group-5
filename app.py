@@ -1,6 +1,6 @@
 
 import os
-from flask import Flask, request, render_template, jsonify
+from flask import Flask, request, render_template, jsonify, session
 from other_read_puzzle import export_result
 from other_sudokuSolver import solveSudoku
 from werkzeug.utils import secure_filename
