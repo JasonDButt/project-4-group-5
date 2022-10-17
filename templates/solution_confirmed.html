@@ -18,7 +18,8 @@
    
    <!-- Javascript to get board -->
     <script type="text/javascript">
-        var board_data = {{ data|tojson }}
+        var confirmed_data = {{ data|tojson }}
+        if (confirmed_data[2] === false){alert("Invalid Puzzles:\n@Ensure to check the puzzles based on instructions.")} ;
      </script>
 </head>
 
@@ -58,14 +59,13 @@
             <div class="col-md-6"><img src={{path}} class="mx-auto" style="width: 50%;"></div>
             <div class="col-md-6">
                 <!-- area for D3 output code -->
-                <strong><p class="mx-auto">Try CLICK to highlight cells to be changed</p></strong>
                 <div id="grid"></div>
             </div>
         </div>
     </div>
         
 <!-- link to the test JS file -->
-<script type="text/javascript" src="{{ url_for('static', filename='js/app.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/app_confirmed.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 </body>
