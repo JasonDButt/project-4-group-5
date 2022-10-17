@@ -47,7 +47,7 @@ def solve():
         else:
             board_py_copy = board_py
             modified_data = mo_data.split(";")
-            for i in range(len(modified_data)-1): # -1 to account for the last ";"
+            for i in range(len(modified_data)):
                 x = int(modified_data[i][0])-1 # -1 to account for different rule of start point in python
                 y = int(modified_data[i][1])-1
                 value = int(modified_data[i][2])
