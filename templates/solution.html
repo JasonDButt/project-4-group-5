@@ -53,47 +53,6 @@
         </div>
     </div>
 
-    <!-- Fourth Part: Outout area -->  
-    <div class="custom-container container">
-        <div class="row">
-            <!-- area for user's uploading image -->
-            <div class="col-md-6"><img src={{path}} class="mx-auto" style="width: 50%;"></div>
-            <div class="col-md-6">
-                <!-- area for D3 output code -->
-                <div id="grid"></div>
-                <div class="center fixed-width">
-                    <div class="inline">
-                        <h1>Sudoku Solver</h1>
-                    </div>
-                    <div id="new-puzzle" class="inline readable clickable btn">
-                        Setup New Puzzle
-                    </div>
-                </div>
-                <div id="grid"></div>
-                <div class="inline readable clickable btn"></div>
-                <div class="container"></div>
-                <div id="status" class="center fixed-width">
-                    <div id="status-text" class="inline readable non-clickable">
-                        Select an empty grid
-                    </div>
-                    <div id="status-count" class="inline readable non-clickable">
-                        0 more grids to go
-                    </div>
-                </div>
-                <div id="pad" class="center fixed-width">
-                </div>
-                <div id="solve" class="center fixed-width">
-                    
-                    <div id="auto-solve" class="inline readable clickable btn">
-                        Auto Solve
-                    </div>
-                    <div id="auto-solve-all" class="inline readable clickable btn">
-                        Auto Solve All
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
         
 <!-- link to the test JS file -->
 <script type="text/javascript" src="{{ url_for('static', filename='js/app.js') }}"></script>

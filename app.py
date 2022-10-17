@@ -7,7 +7,7 @@ from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 app.config['UPLOAD_PATH'] = 'static/images'
-app.secret_key = "qh7djvl;3gffwkkdkkdwkhgsomdddd\\\\\\dcywk"
+app.secret_key = "qh7djvl;3gffwkkhdkkdkfwkhgsomdddd\\\\\\dcywk"
 
 @app.route("/")
 def index():
