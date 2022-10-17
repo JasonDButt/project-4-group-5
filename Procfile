@@ -1,1 +1,1 @@
-web: gunicorn app:app
+web: gunicorn project-4-group-5.app:app
