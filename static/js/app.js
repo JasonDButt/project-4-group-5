@@ -3,7 +3,8 @@
 //     return x
 // };
 
-console.log(board_data);
+// console.log(board_data[0][3]);
+
 function gridData() {
 	var data = new Array();
 	var xpos = 1; //starting xpos and ypos at 1 so the stroke will show when we make the grid below
@@ -13,12 +14,13 @@ function gridData() {
 	var click = 0;
 	
 	// iterate for rows	
-	for (var row = 0; row < 10; row++) {
+	for (var row = 0; row < 9; row++) {
 		data.push( new Array() );
-		
+
 		// iterate for cells/columns inside rows
-		for (var column = 0; column < 10; column++) {
+		for (var column = 0; column < 9; column++) {
 			data[row].push({
+				value: board_data[row][column],
 				x: xpos,
 				y: ypos,
 				width: width,
@@ -67,3 +69,15 @@ var column = row.selectAll(".square")
 	   if ((d.click)%4 == 2 ) { d3.select(this).style("fill","#F56C4E"); }
 	   if ((d.click)%4 == 3 ) { d3.select(this).style("fill","#838690"); }
     });
+
+var text = row.selectAll(".label")
+	.data(function(d) {return d;})
+  	.enter().append("svg:text")
+	.attr("x", function(d) { return d.x + d.width/2 })
+	.attr("y", function(d) { return d.y + d.height/2 })
+	.attr("text-anchor","middle")
+	.attr("dy",".35em")
+	.text(function(d) { return d.value });
+
+
+
