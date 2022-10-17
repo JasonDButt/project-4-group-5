@@ -1,8 +1,8 @@
 
 import os
 from flask import Flask, request, render_template, jsonify, session
-from read_puzzle import export_result
-from sudokuSolver import solveSudoku
+from .read_puzzle import export_result
+from .sudokuSolver import solveSudoku
 from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
