@@ -59,4 +59,5 @@ var column = row.selectAll(".square")
        if ((d.click)%4 == 0 ) { d3.select(this).style("fill","#fff"); }
 	   if ((d.click)%4 == 1 ) { d3.select(this).style("fill","#2C93E8"); }
 	   if ((d.click)%4 == 2 ) { d3.select(this).style("fill","#F56C4E"); }
+	   if ((d.click)%4 == 3 ) { d3.select(this).style("fill","#838690"); }
     });
