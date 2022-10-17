@@ -10,18 +10,18 @@
 ## Key Project Tools
 The below outlines programs included in this project. 
 <p align="center">
-  <img width="460" height="300" src="https://github.com/JasonDButt/project-4-group-5/blob/Maozhu_2/other/structure.png">
+  <img width="460" height="300" src="https://github.com/JasonDButt/project-4-group-5/blob/Maozhu_2/other/strcuture.JPG">
 </p>
 
 ### 1.1	Flask App
-Flask app was designed to follow the flow shown as left. One thing needs mentioning is as the accuracy rate of model is not 100%, so in the solution page, function for user to check and amend change has been designed in the app using the form group from html.
+Flask app was designed to follow the flow shown below. One thing needs mentioning is as the accuracy rate of model is not 100%, so in the solution page, function for user to check and amend change has been designed through the form group from html.
 <p align="center">
   <img width="460" height="300" src="https://github.com/JasonDButt/project-4-group-5/blob/Maozhu_2/other/flask.png">
 </p>
 
 ### 1.2	Model Training & Image Reading
 We are using the code [here](https://machinelearningprojects.net/sudoku-solver/) to read the image and reference its model training process.
-The primary dataset used is MNIST, and a network architecture of CNN is chosen. 
+<br>The primary dataset used is MNIST, and a network architecture of CNN is chosen. 
 
 ### 1.3	Solve Sudoku
 A backtracking algorithm is used to develop the python script of solving Sudoku, with the below diagram showing the process: 
