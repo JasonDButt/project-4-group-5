@@ -43,7 +43,7 @@ def solve():
     # modify board based on user's input
     try:
         if mo_data == "none":
-            solution = solveSudoku(board_py)
+            solution = solveSudoku(board_py_copy)
         else:
             board_py_copy = board_py
             modified_data = mo_data.split(";")
@@ -57,9 +57,9 @@ def solve():
         solution = None
     
     if solution:    
-        return render_template("solution.html", data=solution, path=path)
+        return render_template("solution_confirmed.html", data=solution, path=path)
     else: 
-        return render_template("solution.html", data=(board_py,[],False), path=path)
+        return render_template("solution_confirmed.html", data=(board_py,[],False), path=path)
 
 if __name__ == "__main__":
     app.run(debug=True)

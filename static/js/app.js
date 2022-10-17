@@ -3,11 +3,12 @@
 //     return x
 // };
 
-// console.log(board_data[0][3]);
+console.log(board_data)
+
 
 function gridData() {
 	var data = new Array();
-	var xpos = 1; //starting xpos and ypos at 1 so the stroke will show when we make the grid below
+	var xpos = 0; //starting xpos and ypos at 1 so the stroke will show when we make the grid below
 	var ypos = 1;
 	var width = 50;
 	var height = 50;
@@ -31,7 +32,7 @@ function gridData() {
 			xpos += width;
 		}
 		// reset the x position after a row is complete
-		xpos = 1;
+		xpos = 0;
 		// increment the y position for the next row. Move it down 50 (height variable)
 		ypos += height;	
 	}
@@ -64,10 +65,8 @@ var column = row.selectAll(".square")
 	.style("stroke", "#222")
 	.on('click', function(d) {
        d.click ++;
-       if ((d.click)%4 == 0 ) { d3.select(this).style("fill","#fff"); }
-	   if ((d.click)%4 == 1 ) { d3.select(this).style("fill","#2C93E8"); }
-	   if ((d.click)%4 == 2 ) { d3.select(this).style("fill","#F56C4E"); }
-	   if ((d.click)%4 == 3 ) { d3.select(this).style("fill","#838690"); }
+       if ((d.click)%2 == 0 ) { d3.select(this).style("fill","#fff"); }
+	   if ((d.click)%2 == 1 ) { d3.select(this).style("fill","#2C93E8"); }
     });
 
 var text = row.selectAll(".label")
