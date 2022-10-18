@@ -96,7 +96,7 @@ def display_numbers_on_board(board,puzzle):
 # Determine step size for x and y directions (cell size)
 # Create board and initialise values as 0
 def export_result(img_path):
-    model = load_model('model/model_mnist/')
+    model = load_model('project-4-group-5/model/model_mnist/')
     # New model
     # model = load_model('model/model/')
     img_shape = [28,28]
